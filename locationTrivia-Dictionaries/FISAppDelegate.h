@@ -18,4 +18,6 @@
 
 -(NSArray *)getLocationNamesWithLocations:(NSArray *)locationList;
 
+-(BOOL)verifyLocation:(NSDictionary*)locationData;
+
 @end
