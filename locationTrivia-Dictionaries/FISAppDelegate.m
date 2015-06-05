@@ -46,4 +46,17 @@
     // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
 }
 
+
+//  *************
+//  +++++++++++++
+//  *************
+
+
+-(NSString *)shortenLocationNameWithLocation:(NSDictionary*)location toCount:(NSInteger)newMaxLength
+{
+    NSString *longName = location[@"name"];
+    NSMutableString *shortName = [NSMutableString stringWithString:longName];
+    [shortName deleteCharactersInRange:NSMakeRange(newMaxLength, ([longName length] - newMaxLength))];
+    return [shortName copy];
+}
 @end
