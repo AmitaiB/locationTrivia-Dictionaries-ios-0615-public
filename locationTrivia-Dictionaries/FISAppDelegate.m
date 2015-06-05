@@ -90,7 +90,6 @@
     NSSet *locationDataKeys   = [NSSet setWithArray:[locationData allKeys]];
     NSLog(@"properKeysTemplate:\n%@\n\n[locationData allKeys]:\n%@", properKeysTemplate, locationDataKeys);
     
-    
     if (locationDataKeys != properKeysTemplate) {
         return NO;
     }
