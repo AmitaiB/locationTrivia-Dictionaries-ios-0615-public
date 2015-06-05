@@ -82,12 +82,16 @@
 
 -(BOOL)verifyLocation:(NSDictionary*)locationData
 {
-    //must have exact number of keys.
-    //the keys must match
-    //the objects cannot be empty
-    NSArray *properKeysTemplate = @[@"name", @"longitude", @"latitude"];
+//    must have exact number of keys.
+//    the keys must match
+//    the objects cannot be empty
     
-    if ([locationData allKeys] != properKeysTemplate) {
+    NSSet *properKeysTemplate = [NSSet setWithArray: @[@"name", @"longitude", @"latitude"]];
+    NSSet *locationDataKeys   = [NSSet setWithArray:[locationData allKeys]];
+    NSLog(@"properKeysTemplate:\n%@\n\n[locationData allKeys]:\n%@", properKeysTemplate, locationDataKeys);
+    
+    
+    if (locationDataKeys != properKeysTemplate) {
         return NO;
     }
     if ([[locationData allValues] count] != 6) {
