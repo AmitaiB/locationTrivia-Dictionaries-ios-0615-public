@@ -20,4 +20,6 @@
 
 -(BOOL)verifyLocation:(NSDictionary*)locationData;
 
+-(NSDictionary*)searchForLocationName:(NSArray*)locationsList inLocations:(NSString*)chosenLocation;
+
 @end

@@ -51,7 +51,7 @@
 //  +++++++++++++
 //  *************
 
-
+//  You could also use substringToIndex, or just set the element[length+1] = nil.
 -(NSString *)shortenLocationNameWithLocation:(NSDictionary*)location ToCount:(NSInteger)newMaxLength
 {
     NSString *longName = location[@"name"];
@@ -95,6 +95,16 @@
     }
     
     return YES;
+}
+
+-(NSDictionary*)searchForLocationName:(NSArray*)locationsList inLocations:(NSString*)chosenLocation
+{
+    for (NSDictionary *locationEntry in locationsList) {
+        if ([[locationEntry allValues] containsObject:chosenLocation]) {
+            return locationEntry;
+        }
+    }
+    return nil;
 }
 
 @end
