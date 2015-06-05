@@ -16,4 +16,6 @@
 
 -(NSDictionary *)createLocationWithName:(NSString*)locName Latitude:(NSNumber*)lat Longitude:(NSNumber*)lng;
 
+-(NSArray *)getLocationNamesWithLocations:(NSArray *)locationList;
+
 @end

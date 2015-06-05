@@ -68,4 +68,16 @@
   
     return locationEntry;
 }
+
+-(NSArray *)getLocationNamesWithLocations:(NSArray *)locationList
+{
+    NSMutableArray *locationNames = [[NSMutableArray alloc] init];
+
+    for (NSDictionary *locationEntry in locationList) {
+        [locationNames addObject:locationEntry[@"name"]];
+    }
+    
+    return [locationNames copy];
+}
+
 @end
