@@ -12,6 +12,8 @@
 
 @property (strong, nonatomic) UIWindow *window;
 
--(NSString *)shortenLocationNameWithLocation:(NSDictionary*)location toCount:(NSInteger)characterCount;
+-(NSString *)shortenLocationNameWithLocation:(NSDictionary*)location ToCount:(NSInteger)characterCount;
+
+-(NSDictionary *)createLocationWithName:(NSString*)locName Latitude:(NSNumber*)lat Longitude:(NSNumber*)lng;
 
 @end

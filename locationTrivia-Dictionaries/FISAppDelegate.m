@@ -52,11 +52,20 @@
 //  *************
 
 
--(NSString *)shortenLocationNameWithLocation:(NSDictionary*)location toCount:(NSInteger)newMaxLength
+-(NSString *)shortenLocationNameWithLocation:(NSDictionary*)location ToCount:(NSInteger)newMaxLength
 {
     NSString *longName = location[@"name"];
     NSMutableString *shortName = [NSMutableString stringWithString:longName];
     [shortName deleteCharactersInRange:NSMakeRange(newMaxLength, ([longName length] - newMaxLength))];
     return [shortName copy];
+}
+
+-(NSDictionary *)createLocationWithName:(NSString*)locName Latitude:(NSNumber*)lat Longitude:(NSNumber*)lng
+{
+    NSArray *categoryKeys   = @[@"name", @"longitude", @"latitude"];
+    NSArray *locationValues = @[locName,          lng,        lat ];
+    NSDictionary *locationEntry = [NSDictionary dictionaryWithObjects:locationValues forKeys:categoryKeys];
+  
+    return locationEntry;
 }
 @end

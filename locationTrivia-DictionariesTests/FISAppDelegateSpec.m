@@ -43,7 +43,7 @@ describe(@"FISAppDelegate", ^{
 
     describe(@"Shorten Location Name", ^{
         it(@"Should have a method called shortenLocationNameWithLocation:toCount:", ^{
-            expect(appDelegate).to.respondTo(@selector(shortenLocationNameWithLocation:toCount:));
+            expect(appDelegate).to.respondTo(@selector(shortenLocationNameWithLocation:ToCount:));
         });
 
         it(@"Should return an NSString", ^{
