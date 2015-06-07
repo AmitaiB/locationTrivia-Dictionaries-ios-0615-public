@@ -76,13 +76,17 @@
 
 -(NSArray *)getLocationNamesWithLocations:(NSArray *)locationList
 {
-    NSMutableArray *locationNames = [[NSMutableArray alloc] init];
-
-    for (NSDictionary *locationEntry in locationList) {
-        [locationNames addObject:locationEntry[@"name"]];
-    }
+    return [locationList valueForKey:@"name"];
     
-    return [locationNames copy];
+//    This was my first version (successful):
+//    ###########
+//    NSMutableArray *locationNames = [[NSMutableArray alloc] init];
+//
+//    for (NSDictionary *locationEntry in locationList) {
+//        [locationNames addObject:locationEntry[@"name"]];
+//    }
+//
+//    return [locationNames copy];
 }
 
 -(BOOL)verifyLocation:(NSDictionary*)locationEntry
