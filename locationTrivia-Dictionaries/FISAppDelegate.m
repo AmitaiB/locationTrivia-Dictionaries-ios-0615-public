@@ -110,12 +110,24 @@
 
 -(NSDictionary*)searchForLocationName:(NSArray*)locationsList inLocations:(NSString*)chosenLocation
 {
-    for (NSDictionary *locationEntry in locationsList) {
-        if ([[locationEntry allValues] containsObject:chosenLocation]) {
-            return locationEntry;
+//    NSArray *locationNamesOnlyList = [locationsList valueForKey: @"name"]; //ty, Monolo(github)
+//    BOOL locationIsInList = [locationNamesOnlyList containsObject:chosenLocation];
+
+    NSSet *locationsListAsNSSet = [NSSet setWithArray:locationsList];
+//    NSMutableDictionary *searchResult = [[NSMutableDictionary alloc] init];
+    
+    for (NSDictionary *location in locationsListAsNSSet) {
+        if ([location[@"name"] isEqualToString:chosenLocation]) {
+            return location;
         }
     }
     return nil;
+
+//    if (locationIsInList) {
+//        locationsListAsNSSet[chosenLocation];
+//    }
+
+//    return [searchResult copy];
 }
 
 @end
