@@ -85,24 +85,27 @@
     return [locationNames copy];
 }
 
--(BOOL)verifyLocation:(NSDictionary*)locationData
+-(BOOL)verifyLocation:(NSDictionary*)locationEntry
 {
-//    must have exact number of keys.
-//    the keys must match
-//    the objects cannot be empty
+    BOOL theKeysMatch;
+    BOOL theEntryIsFilledIn;
     
-    NSSet *properKeysTemplate = [NSSet setWithArray: @[@"name", @"longitude", @"latitude"]];
-    NSSet *locationDataKeys   = [NSSet setWithArray:[locationData allKeys]];
-    NSLog(@"properKeysTemplate:\n%@\n\n[locationData allKeys]:\n%@", properKeysTemplate, locationDataKeys);
+    NSSet *setOfProperKeys  =  [NSSet setWithArray: @[@"name", @"longitude", @"latitude"]];
+    NSSet *setOfLocationEntryKeys = [NSSet setWithArray:[locationEntry allKeys]];
     
-    if (locationDataKeys != properKeysTemplate) {
-        return NO;
-    }
-    if ([[locationData allValues] count] != 6) {
-        return NO;
+    if ([setOfProperKeys isEqualToSet: setOfLocationEntryKeys]) {
+        theKeysMatch = YES;
+    } else {
+        theKeysMatch = NO;
     }
     
-    return YES;
+    if ([setOfLocationEntryKeys count] == [locationEntry count]) {
+        theEntryIsFilledIn = YES;
+    } else {
+        theEntryIsFilledIn = NO;
+    }
+    
+    return (theEntryIsFilledIn && theKeysMatch);
 }
 
 -(NSDictionary*)searchForLocationName:(NSArray*)locationsList inLocations:(NSString*)chosenLocation
