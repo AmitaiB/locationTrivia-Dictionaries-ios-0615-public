@@ -75,7 +75,7 @@
 }
 
 -(NSArray *)getLocationNamesWithLocations:(NSArray *)locationList
-{   //refactored version:
+{
     return [locationList valueForKey:@"name"];
     
 //    This was my first version (successful):
