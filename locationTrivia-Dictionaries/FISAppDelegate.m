@@ -55,6 +55,10 @@
 //  You could also use substringToIndex, or just set the element[length+1] = nil.
 -(NSString *)shortenLocationNameWithLocation:(NSDictionary*)location ToCount:(NSInteger)newMaxLength
 {
+    if (newMaxLength < 0) {
+        return location[@"name"];
+    }
+    
     NSString *longName = location[@"name"];
     NSMutableString *shortName = [NSMutableString stringWithString:longName];
     [shortName deleteCharactersInRange:NSMakeRange(newMaxLength, ([longName length] - newMaxLength))];
